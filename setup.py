@@ -22,6 +22,6 @@ setup(
     author_email='nskrypnik@gmail.com',
     include_package_data=True,
     packages=find_packages(exclude=("tests",)),
-    data_files=list(examples.items()),
+    data_files=list(examples.items()) + ['kivy3/default.glsl'],
     requires=['kivy', ]
 )
