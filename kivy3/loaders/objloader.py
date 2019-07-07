@@ -94,7 +94,7 @@ class WaveObject(object):
         # apply material for object
         if self.mtl_name in self.loader.mtl_contents:
             raw_material = self.loader.mtl_contents[self.mtl_name]
-            for k, v in raw_material.iteritems():
+            for k, v in raw_material.items():
                 _k = self._mtl_map.get(k, None)
                 if k in ["map_Kd", ]:
                     map_path = os.path.join(mtl_dirname, v[0])
@@ -108,7 +108,7 @@ class WaveObject(object):
                             v = 1. - v
                         setattr(material, _k, v)
                     else:
-                        v = map(lambda x: float(x), v)
+                        v = [float(x) for x in v]
                         setattr(material, _k, v)
         mesh = Mesh(geometry, material)
         return mesh
@@ -169,17 +169,17 @@ class OBJLoader(BaseLoader):
                     faces_section = False
                     yield wvobj
                     wvobj = WaveObject(self)
-                v = map(float, values[1:4])
+                v = list(map(float, values[1:4]))
                 if self.swapyz:
                     v = v[0], v[2], v[1]
                 self.vertices.append(v)
             elif values[0] == 'vn':
-                v = map(float, values[1:4])
+                v = list(map(float, values[1:4]))
                 if self.swapyz:
                     v = v[0], v[2], v[1]
                 self.normals.append(v)
             elif values[0] == 'vt':
-                self.texcoords.append(map(float, values[1:3]))
+                self.texcoords.append(list(map(float, values[1:3])))
             elif values[0] == 'f':
                 if not faces_section:
                     faces_section = True

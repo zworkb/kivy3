@@ -1,5 +1,5 @@
 import unittest
-from utils import Sandbox
+from .utils import Sandbox
 from kivy3 import Material
 
 
@@ -14,9 +14,9 @@ class MaterialTest(unittest.TestCase):
 
     def test_setattr(self):
         self.mat.color = (0., 0., 0.)
-        self.assertEquals(self.mat.changes['Ka'], (0., 0., 0.))
+        self.assertEqual(self.mat.changes['Ka'], (0., 0., 0.))
         self.mat.shininess = 5
-        self.assertEquals(self.mat.changes['Ns'], 5.)
+        self.assertEqual(self.mat.changes['Ns'], 5.)
 
 if __name__ == '__main__':
     unittest.main()

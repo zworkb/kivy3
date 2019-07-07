@@ -11,13 +11,13 @@ class Vector3Test(unittest.TestCase):
 
     def test_create(self):
         v = Vector3(1, 2, 3)
-        self.assertEquals(v[0], 1)
-        self.assertEquals(v[1], 2)
-        self.assertEquals(v[2], 3)
+        self.assertEqual(v[0], 1)
+        self.assertEqual(v[1], 2)
+        self.assertEqual(v[2], 3)
         v = Vector3([4, 5, 6])
-        self.assertEquals(v[0], 4)
-        self.assertEquals(v[1], 5)
-        self.assertEquals(v[2], 6)
+        self.assertEqual(v[0], 4)
+        self.assertEqual(v[1], 5)
+        self.assertEqual(v[2], 6)
         try:
             Vector3(1, 2, 3, 4)
             assert False, "This shold not reached"

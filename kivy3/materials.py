@@ -53,7 +53,7 @@ class Material(ChangeState):
         shininess = float(shininess)
 
         # set attribute from locals
-        for k, v in locals().items():
+        for k, v in list(locals().items()):
             setattr(self, k, v)
 
     def __setattr__(self, k, v):

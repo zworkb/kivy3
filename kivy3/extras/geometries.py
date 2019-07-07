@@ -69,7 +69,7 @@ class BoxGeometry(Geometry):
         n_idx = 0
         for f in self._cube_faces:
             face3 = Face3(*f)
-            normal = self._cube_normals[n_idx / 2]
+            normal = self._cube_normals[int(n_idx / 2)]
             face3.vertex_normals = [normal, normal, normal]
             n_idx += 1
             self.faces.append(face3)
